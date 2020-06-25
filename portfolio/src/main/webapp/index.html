@@ -5,17 +5,57 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <style>
+    a    {
+        color: black;
+        text-shadow: 2px 2px 5px turquoise, 1px 1px 3px purple, 1px 2px 3px snow;
+        text-decoration: underline;
+    }
+
+    body {
+        background: url(images/better.jpg) no-repeat center center fixed;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    img  {
+        border-radius: 30px;
+    }
+
+    img:hover {
+        box-shadow: 0 0 2px 1px white;
+    }
+    </style>
   </head>
   <body>
     <div id="content">
-      <h1>Kyle Smith's Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>I am a rising sophomore at MIT who is studying Mathematics & Computer Science.</p>
-      <p>I am an intern at Google</p>
-      <img src="/images/mit.jpg" width="300" height="177" alt="This is my university">
-      <p>Click here to get a random fact about me:</p>
-      <button onclick="addRandomFact()">Fact!</button>
-      <div id="fact-container"></div>
+      <div id="bold"><h1>Kyle Smith's Portfolio</h1></div>
+
+      <p><a href="https://github.com/kyleasmith1">GitHub</a>&nbsp;&nbsp;
+      <a href="about.html">About Me</a>&nbsp;&nbsp;
+      <a href="https://linkedin.com/in/k-smith23">LinkedIn</a></p>
+
+      <div id="bold"><h3>Click Here To See Some Cool Places I've Been To:</h3></div>
+      <a href="images.html">
+        <img src="/images/art.png" width="300" height="177" alt="Art Gallery">
+      </a>
+
+      <div id="bold"><h3>Some Projects I've Worked On:</h3></div>
+
+      <p>LISP Interpreter-carlae (Python)</p>
+      <p>Dijkstra's Algorithm (Python)</p>
+      <p>Auto Correct/Auto Complete (Python)</p>
+      <p>Logic Puzzle Solver (Python)</p>
+      <p>Johnson's Algorithm (Python)</p>
+      <p>N-Dimensional Minesweeper (Python)</p>
+
+      <div id="bold"><h3>Click Here To Get A Random Inspirational Quote:</h3></div>
+
+      <button id="button" onclick="addRandomQuote()">Random Quote</button>
+      
+      <div id="quote-container"></div>
     </div>
   </body>
 </html>

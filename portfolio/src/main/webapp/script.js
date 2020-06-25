@@ -13,16 +13,19 @@
 // limitations under the License.
 
 /**
- * Adds a random greeting to the page.
+ * Adds a random quote to the page.
  */
-function addRandomFact() {
-  const facts =
-      ['I play basketball', 'My favorite food is lasagna', 'I am 19 years old', 'I studied abroad twice'];
+ function addRandomQuote() {
+    const quotes =
+        ['The most common way people give up their power is by thinking they don’t have any.','The most difficult thing is the decision to act, the rest is merely tenacity.','We become what we think about.', 'Either you run the day, or the day runs you.', 'Fall seven times and stand up eight.', 'You become what you believe.', 'Dream big and dare to fail.'];
 
-  // Pick a random greeting.
-  const fact = facts[Math.floor(Math.random() * facts.length)];
+    let quote = quotes[Math.floor(Math.random() * quotes.length)];
 
-  // Add it to the page.
-  const factContainer = document.getElementById('fact-container');
-  factContainer.innerText = fact;
+    const quoteContainer = document.getElementById('quote-container');
+
+    while (quoteContainer.innerText == quote) {
+        quote = quotes[Math.floor(Math.random() * quotes.length)];
+    }
+
+    quoteContainer.innerText = quote;
 }
