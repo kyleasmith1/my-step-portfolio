@@ -13,6 +13,8 @@ Github Stuff
 * git add FILE_NAME
 * git commit -m DESCRIPTION OF WHAT YOU ARE DOING
 * git push origin YOUR_BRANCH_NAME
+* git push origin --delete <branch>
+* git branch --delete <branch>
 
 HTML Stuff
 * <img src="LINK_HERE" width="SIZE" height="SIZE" alt="WHAT IS THE IMAGE">
