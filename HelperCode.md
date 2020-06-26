@@ -17,6 +17,7 @@ Github Stuff
 * git branch --delete <branch>
 * git pull origin master:<local master>
 
+
 HTML Stuff
 * <img src="LINK_HERE" width="SIZE" height="SIZE" alt="WHAT IS THE IMAGE">
 * <p> Separates Lines</p>
