@@ -1,4 +1,24 @@
-#content {
+a    {
+        color: black;
+        text-shadow: 2px 2px 5px turquoise, 1px 1px 3px purple, 1px 2px 3px snow;
+        text-decoration: underline;
+}
+
+.art-img  {
+    border-radius: 30px;
+    width: 300px; 
+    height: 177px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bar {
+    border-bottom:3px solid #000;
+}
+
+body {
+  background: url(images/better.jpg) no-repeat center center fixed;
   text-align: center;
   padding: 25px;
   font-family: Arial, Helvetica, sans-serif;
@@ -6,15 +26,37 @@
   margin-left: auto;
   margin-right: auto;
   width: 650px;
-  background:transparent
 }
 
-#bold {
+h1, h2, h3 {
     color: black;
     text-shadow: 2px 2px 5px turquoise, 1px 1px 3px purple, 1px 2px 3px snow;
 }
 
-#button {
+.gallery-img {
+    width: 400px; 
+    height: 221px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-img {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+img:hover {
+    box-shadow: 0 0 2px 1px white;
+}
+
+#random-quote-button {
   border-radius:10px;
   color: floralwhite;
   background-color: black;

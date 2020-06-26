@@ -30,7 +30,7 @@
 
     let quote = quotes[Math.floor(Math.random() * quotes.length)];
 
-    while (quoteContainer.innerText == quote) {
+    while (quoteContainer.innerText === quote) {
         quote = quotes[Math.floor(Math.random() * quotes.length)];
     }
 
