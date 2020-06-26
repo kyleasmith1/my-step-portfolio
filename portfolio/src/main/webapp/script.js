@@ -16,7 +16,14 @@
  * Adds a random quote to the page.
  */
  function addRandomQuote() {
-    const quotes =
+    const quotes =  [
+        'The most common way people give up their power is by thinking they don’t have any.',
+        'The most difficult thing is the decision to act, the rest is merely tenacity.',
+        'We become what we think about.',
+        'Either you run the day, or the day runs you.', 
+        'Fall seven times and stand up eight.',
+        'You become what you believe.', 'Dream big and dare to fail.',
+    ];
         ['The most common way people give up their power is by thinking they don’t have any.','The most difficult thing is the decision to act, the rest is merely tenacity.','We become what we think about.', 'Either you run the day, or the day runs you.', 'Fall seven times and stand up eight.', 'You become what you believe.', 'Dream big and dare to fail.'];
 
     let quote = quotes[Math.floor(Math.random() * quotes.length)];
