@@ -1,7 +1,7 @@
-a    {
-        color: black;
-        text-shadow: 2px 2px 5px turquoise, 1px 1px 3px purple, 1px 2px 3px snow;
-        text-decoration: underline;
+a {
+    color: black;
+    text-shadow: 2px 2px 5px turquoise, 1px 1px 3px purple, 1px 2px 3px snow;
+    text-decoration: underline;
 }
 
 .art-img  {
@@ -18,14 +18,14 @@ a    {
 }
 
 body {
-  background: url(images/better.jpg) no-repeat center center fixed;
-  text-align: center;
-  padding: 25px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: floralwhite;
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+    background: url(images/better.jpg) no-repeat center center fixed;
+    text-align: center;
+    padding: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: floralwhite;
+    margin-left: auto;
+    margin-right: auto;
+    width: 650px;
 }
 
 h1, h2, h3 {
@@ -57,12 +57,12 @@ img:hover {
 }
 
 #random-quote-button {
-  border-radius:10px;
-  color: floralwhite;
-  background-color: black;
+    border-radius:10px;
+    color: floralwhite;
+    background-color: black;
   
 }
 
 #quote-container {
-  margin-top: 15px;
+    margin-top: 15px;
 }
