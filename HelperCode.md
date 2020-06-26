@@ -15,6 +15,8 @@ Github Stuff
 * git push origin YOUR_BRANCH_NAME
 * git push origin --delete <branch>
 * git branch --delete <branch>
+* git pull origin master:<local master>
+
 
 HTML Stuff
 * <img src="LINK_HERE" width="SIZE" height="SIZE" alt="WHAT IS THE IMAGE">
