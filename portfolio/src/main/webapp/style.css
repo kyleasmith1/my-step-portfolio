@@ -28,6 +28,12 @@ body {
     width: 650px;
 }
 
+#comments {
+    border-radius:10px;
+    color: floralwhite;
+    background-color: black;
+}
+
 h1, h2, h3 {
     color: black;
     text-shadow: 2px 2px 5px turquoise, 1px 1px 3px purple, 1px 2px 3px snow;
@@ -56,11 +62,14 @@ img:hover {
     box-shadow: 0 0 2px 1px white;
 }
 
+#message-container {
+    margin-top: 15px;
+}
+
 #random-quote-button {
     border-radius:10px;
     color: floralwhite;
-    background-color: black;
-  
+    background-color: black; 
 }
 
 #quote-container {

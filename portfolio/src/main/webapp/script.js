@@ -12,9 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Adds a random quote to the page.
- */
  function addRandomQuote() {
     const quotes =  [
         'The most common way people give up their power is by thinking they don’t have any.',
@@ -35,4 +32,10 @@
     }
 
     quoteContainer.innerText = quote;
+}
+
+function getServerMessageUsingArrowFunctions(){
+  fetch('/data').then(response => response.json()).then((data) => {
+      document.getElementById('message-container').innerText = data;
+  });
 }
