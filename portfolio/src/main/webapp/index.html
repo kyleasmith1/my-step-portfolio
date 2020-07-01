@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="getComments()">
     <!-- Week 1 -->
     <h1>Kyle Smith's Portfolio</h1>
 
@@ -38,11 +38,21 @@
     <p>N-Dimensional Minesweeper (Python)</p>
 
     <!-- Week 2 -->
-    <h3>JSON Test:</h3>
+    <form action="/data" method="POST">
 
-    <button id="comments" onclick="getServerMessageUsingArrowFunctions()">Click</button>
-    
-    <div id="message-container"></div>
+      <p><h3>Enter a comment:</h3></p>
+      Username:
+      <p><textarea name="name-input" id="name-box" placeholder ="Input here..."
+      maxlength="25"></textarea></p>
+
+      <p><textarea name="text-input" id="text-box" placeholder="Leave a message..." 
+      maxlength="300"></textarea></p>
+      <br/><br/>
+
+      <input type="submit" id="comments-button">
+      <p><div class="comment-bar"></div></p>
+      <p><div id="comment-container"></div></p>
+    </form>
 
   </body>
 </html>

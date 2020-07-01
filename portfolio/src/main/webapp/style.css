@@ -28,7 +28,18 @@ body {
     width: 650px;
 }
 
-#comments {
+.comment-bar {
+    border-bottom:1.5px solid floralwhite;
+    opacity: 0.6;
+}
+
+#comment-container {
+    margin-top: 15px;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+#comments-button {
     border-radius:10px;
     color: floralwhite;
     background-color: black;
@@ -62,8 +73,19 @@ img:hover {
     box-shadow: 0 0 2px 1px white;
 }
 
-#message-container {
+li {
+    list-style-type:none;
     margin-top: 15px;
+}
+
+#name-box {
+    background: url(images/better.jpg) center center no-repeat fixed;
+    border: 1px solid white;
+    outline: none;
+    resize: none;
+    color: floralwhite;
+    width: 12em;
+    height: 1.75em;
 }
 
 #random-quote-button {
@@ -74,4 +96,23 @@ img:hover {
 
 #quote-container {
     margin-top: 15px;
+}
+
+#text-box {
+    background: url(images/better.jpg) center center no-repeat fixed;
+    border: 1px solid white;
+    outline: none;
+    resize: none;
+    color: floralwhite;
+    width: 48em;
+    height: 4em;
+}
+
+/* PlaceHolder */
+::-webkit-input-placeholder {
+  color: floralwhite;
+}
+
+:focus::-webkit-input-placeholder {
+  opacity: 0.5;
 }

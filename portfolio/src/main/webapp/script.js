@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+/** Week 1 **/
  function addRandomQuote() {
     const quotes =  [
         'The most common way people give up their power is by thinking they don’t have any.',
@@ -34,8 +35,20 @@
     quoteContainer.innerText = quote;
 }
 
-function getServerMessageUsingArrowFunctions(){
+/** Week 2 **/
+function getComments(){
   fetch('/data').then(response => response.json()).then((data) => {
-      document.getElementById('message-container').innerText = data;
+    // Old Comments
+    const commentEl = document.getElementById('comment-container');
+    data.forEach((line) => {
+        commentEl.appendChild(createListElement(line));
+    });
   });
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
