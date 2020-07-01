@@ -37,18 +37,24 @@
 
 /** Week 2 **/
 function getComments(){
-  fetch('/data').then(response => response.json()).then((data) => {
-    // Old Comments
+  fetch('/data').then(response => response.json()).then((tasks) => {
     const commentEl = document.getElementById('comment-container');
-    data.forEach((line) => {
-        commentEl.appendChild(createListElement(line));
+    tasks.forEach((task) => {
+        commentEl.appendChild(createTaskElement(task));
     });
   });
 }
 
-/** Creates an <li> element containing text. */
-function createListElement(text) {
-  const liElement = document.createElement('li');
-  liElement.innerText = text;
-  return liElement;
+/** Task Stuff */
+function createTaskElement(task) {
+  const taskElement = document.createElement('li');
+  taskElement.className = 'task';
+
+  const commentElement = document.createElement('span');
+  commentElement.innerText = task.comment;
+
+  taskElement.appendChild(commentElement);
+  return taskElement;
 }
+
+/** Add delete comment functionality (figure out why it wasn't working) */
