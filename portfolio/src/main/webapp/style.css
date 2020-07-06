@@ -45,6 +45,12 @@ body {
     background-color: black;
 }
 
+#delete-button {
+    border-radius:10px;
+    color: floralwhite;
+    background-color: black; 
+}
+
 h1, h2, h3 {
     color: black;
     text-shadow: 2px 2px 5px turquoise, 1px 1px 3px purple, 1px 2px 3px snow;

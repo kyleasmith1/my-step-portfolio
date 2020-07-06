@@ -41,16 +41,28 @@
     <form action="/data" method="POST">
 
       <p><h3>Enter a comment:</h3></p>
-      Username:
-      <p><textarea name="name-input" id="name-box" placeholder ="Input here..."
-      maxlength="25"></textarea></p>
+      <textarea name="name-input" id="name-box" placeholder ="Username..."
+      maxlength="25"></textarea>
 
       <p><textarea name="text-input" id="text-box" placeholder="Leave a message..." 
       maxlength="300"></textarea></p>
 
       <input type="submit" id="comments-button">
-      <p><div class="comment-bar"></div></p>
-      <p><div id="comment-container"></div></p>
+    </form>
+
+    <form action="/data" method="POST">
+        <p>Number of Comments:  <select id="amount" onchange="getComments()"></p>
+            <option value="/data?bound=5">5</option>
+            <option value="/data?bound=10">10</option>
+            <option value="/data?bound=25">25</option>
+        </select>
+    </form>
+
+    <p><div class="comment-bar"></div></p>
+    <p><div id="comment-container"></div></p>
+
+    <form action="/delete-data" method="POST">
+      <input type="submit" value="Delete All" id="delete-button">
     </form>
 
   </body>

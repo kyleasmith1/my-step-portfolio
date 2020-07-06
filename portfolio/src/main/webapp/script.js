@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/** Week 1 **/
+/** Week 1 */
  function addRandomQuote() {
     const quotes =  [
         'The most common way people give up their power is by thinking they don’t have any.',
@@ -35,10 +35,13 @@
     quoteContainer.innerText = quote;
 }
 
-/** Week 2 **/
+/** Week 2 */
 function getComments(){
-  fetch('/data').then(response => response.json()).then((tasks) => {
+  fetch(document.getElementById('amount').value).then(response => response.json()).then((tasks) => {
     const commentEl = document.getElementById('comment-container');
+    
+    commentEl.innerHTML = '';
+
     tasks.forEach((task) => {
         commentEl.appendChild(createTaskElement(task));
     });
@@ -56,5 +59,3 @@ function createTaskElement(task) {
   taskElement.appendChild(commentElement);
   return taskElement;
 }
-
-/** Add delete comment functionality (figure out why it wasn't working) */

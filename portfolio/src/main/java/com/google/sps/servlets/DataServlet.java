@@ -48,13 +48,23 @@ public class DataServlet extends HttpServlet {
       long id = entity.getKey().getId();
       String comment = (String) entity.getProperty("comment");
       long timestamp = (long) entity.getProperty("timestamp");
-
+      
       Task task = new Task(id, comment, timestamp);
       tasks.add(task);
     }
 
+    int bound = Integer.parseInt(getParameter(request, "bound", "0"));
+
+    int count = tasks.size();
+
+    if (count < bound) {
+        bound = count;
+    }
+
+    List<Task> tasks_ = tasks.subList(0, bound);
+
     response.setContentType("application/json");
-    String json = new Gson().toJson(tasks);
+    String json = new Gson().toJson(tasks_);
     response.getWriter().println(json);
   }
 
