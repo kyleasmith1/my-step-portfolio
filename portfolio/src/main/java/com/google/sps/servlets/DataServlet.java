@@ -52,7 +52,7 @@ public class DataServlet extends HttpServlet {
       tasks.add(task);
     }
 
-    int bounded_task = getIntParameter(request, "comment-bound", 0);
+    int bounded_task = getIntParameter(request, response, "comment-bound", 0);
 
     List tasks_ = tasks.subList(0, Math.min(tasks.size(), bounded_task));
 
@@ -89,14 +89,14 @@ public class DataServlet extends HttpServlet {
     return value;
   }
 
-  private int getIntParameter(HttpServletRequest request, String comment_bound, int defaultValue) {
+  private int getIntParameter(HttpServletRequest request, HttpServletResponse response, String comment_bound, int defaultValue) throws IOException {
     int value = defaultValue;
 
     try {
         value = Integer.parseInt(request.getParameter(comment_bound));
     }
     catch (NumberFormatException e) {
-        System.out.println("Invalid Integer");
+        response.sendError(400, "comment-bound must be a valid integer");
     }
 
     if (value <= 0) {
