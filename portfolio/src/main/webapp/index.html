@@ -24,7 +24,7 @@
 
     <h3>Click Here To Get A Random Inspirational Quote:</h3>
 
-    <button id="random-quote-button" onclick="addRandomQuote()">Random Quote</button>
+    <button class="buttons" onclick="addRandomQuote()">Random Quote</button>
     
     <div id="quote-container"></div>
 
@@ -47,14 +47,14 @@
       <p><textarea name="text-input" id="text-box" placeholder="Leave a message..." 
       maxlength="300"></textarea></p>
 
-      <input type="submit" id="comments-button">
+      <input type="submit" class="buttons">
     </form>
 
     <form action="/data" method="POST">
         <p>Number of Comments:  <select id="amount" onchange="getComments()"></p>
-            <option value="/data?bound=5">5</option>
-            <option value="/data?bound=10">10</option>
-            <option value="/data?bound=25">25</option>
+            <option value="/data?comment-bound=5">5</option>
+            <option value="/data?comment-bound=10">10</option>
+            <option value="/data?comment-bound=25">25</option>
         </select>
     </form>
 
@@ -62,7 +62,7 @@
     <p><div id="comment-container"></div></p>
 
     <form action="/delete-data" method="POST">
-      <input type="submit" value="Delete All" id="delete-button">
+      <input type="submit" value="Delete All" class="buttons">
     </form>
 
   </body>

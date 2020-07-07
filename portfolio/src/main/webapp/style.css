@@ -28,27 +28,24 @@ body {
     width: 650px;
 }
 
-.comment-bar {
-    border-bottom:1.5px solid floralwhite;
-    opacity: 0.6;
-}
-
-#comment-container {
-    margin-top: 15px;
-    text-align: left;
-    word-wrap: break-word;
-}
-
-#comments-button {
+.buttons {
     border-radius:10px;
     color: floralwhite;
     background-color: black;
 }
 
-#delete-button {
-    border-radius:10px;
-    color: floralwhite;
-    background-color: black; 
+.comment-bar {
+    border-bottom:1.5px solid floralwhite;
+    opacity: 0.6;
+}
+
+#comment-container, #quote-container {
+    margin-top: 15px;
+}
+
+#comment-container {
+    text-align: left;
+    word-wrap: break-word;
 }
 
 h1, h2, h3 {
@@ -84,32 +81,20 @@ li {
     margin-top: 15px;
 }
 
-#name-box {
+#name-box, #text-box {
     background: url(images/better.jpg) center center no-repeat fixed;
     border: 1px solid white;
     outline: none;
     resize: none;
     color: floralwhite;
+}
+
+#name-box {
     width: 12em;
     height: 1.75em;
 }
 
-#random-quote-button {
-    border-radius:10px;
-    color: floralwhite;
-    background-color: black; 
-}
-
-#quote-container {
-    margin-top: 15px;
-}
-
 #text-box {
-    background: url(images/better.jpg) center center no-repeat fixed;
-    border: 1px solid white;
-    outline: none;
-    resize: none;
-    color: floralwhite;
     width: 48em;
     height: 4em;
 }
@@ -120,5 +105,5 @@ li {
 }
 
 :focus::-webkit-input-placeholder {
-  opacity: 0.5;
+  opacity: 0.55;
 }

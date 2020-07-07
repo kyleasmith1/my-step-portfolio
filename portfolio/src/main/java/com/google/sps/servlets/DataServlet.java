@@ -32,7 +32,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
@@ -53,15 +52,9 @@ public class DataServlet extends HttpServlet {
       tasks.add(task);
     }
 
-    int bound = Integer.parseInt(getParameter(request, "bound", "0"));
+    int bounded_task = Integer.parseInt(getParameter(request, "comment-bound", "0"));
 
-    int count = tasks.size();
-
-    if (count < bound) {
-        bound = count;
-    }
-
-    List<Task> tasks_ = tasks.subList(0, bound);
+    List tasks_ = tasks.subList(0, Math.min(tasks.size(), bounded_task));
 
     response.setContentType("application/json");
     String json = new Gson().toJson(tasks_);
@@ -95,4 +88,12 @@ public class DataServlet extends HttpServlet {
     }
     return value;
   }
+
+  /*private String getIntParameter(HttpServletRequest request, String bound, int defaultValue) {
+    int value = request.getParameter(bound);
+    if (value == null || value < 0) {
+        return defaultValue;
+    }
+    return value;
+  }*/
 }
