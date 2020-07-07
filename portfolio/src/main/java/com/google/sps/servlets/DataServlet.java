@@ -52,7 +52,7 @@ public class DataServlet extends HttpServlet {
       tasks.add(task);
     }
 
-    int bounded_task = Integer.parseInt(getParameter(request, "comment-bound", "0"));
+    int bounded_task = getIntParameter(request, "comment-bound", 0);
 
     List tasks_ = tasks.subList(0, Math.min(tasks.size(), bounded_task));
 
@@ -89,11 +89,19 @@ public class DataServlet extends HttpServlet {
     return value;
   }
 
-  /*private String getIntParameter(HttpServletRequest request, String bound, int defaultValue) {
-    int value = request.getParameter(bound);
-    if (value == null || value < 0) {
+  private int getIntParameter(HttpServletRequest request, String comment_bound, int defaultValue) {
+    int value = defaultValue;
+
+    try {
+        value = Integer.parseInt(request.getParameter(comment_bound));
+    }
+    catch (NumberFormatException e) {
+        System.out.println("Invalid Integer");
+    }
+
+    if (value <= 0) {
         return defaultValue;
     }
     return value;
-  }*/
+  }
 }
