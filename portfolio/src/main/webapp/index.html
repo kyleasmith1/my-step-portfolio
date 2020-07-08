@@ -2,16 +2,17 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>STEP Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body onload="getComments()">
-    <!-- Week 1 -->
+  <body onload="getComments()" onload="fetchBlobstoreUrlAndShowForm()">
+    <!-- Week 2 -->
     <h1>Kyle Smith's Portfolio</h1>
 
     <p><a href="https://github.com/kyleasmith1">GitHub</a>&nbsp;&nbsp;
     <a href="about.html">About Me</a>&nbsp;&nbsp;
+    <a href="map.html">Map</a>&nbsp;&nbsp;
     <a href="https://linkedin.com/in/k-smith23">LinkedIn</a></p>
 
     <h3>Click Here To See Some Cool Places I've Been To:</h3>
@@ -37,7 +38,7 @@
     <p>Johnson's Algorithm (Python)</p>
     <p>N-Dimensional Minesweeper (Python)</p>
 
-    <!-- Week 2 -->
+    <!-- Week 3 -->
     <form action="/data" method="POST">
 
       <p><h3>Enter a comment:</h3></p>
@@ -50,6 +51,7 @@
       <input type="submit" class="buttons">
     </form>
 
+    <!-- Week 3 -->
     <form action="/data" method="POST">
         <p>Number of Comments:  <select id="amount" onchange="getComments()"></p>
             <option value="/data?comment-bound=5">5</option>
@@ -64,6 +66,5 @@
     <form action="/delete-data" method="POST">
       <input type="submit" value="Delete All" class="buttons">
     </form>
-
   </body>
 </html>
