@@ -3,6 +3,20 @@ function createMap() {
   const map = new google.maps.Map(document.getElementById('map'));
 }
 
+function addLandmark(map, lat, lng, title, description) {
+  const marker = new google.maps.Marker({
+      position: {lat: lat, lng: lng}, 
+      map: map, 
+      title: title,
+      animation: google.maps.Animation.DROP
+      });
+
+  const infoWindow = new google.maps.InfoWindow({content: description});
+  marker.addListener('click', () => {
+    infoWindow.open(map, marker);
+  });
+}
+
 /* Night Mode */
 function initMap() {
     // Styles a map in night mode.
@@ -90,12 +104,9 @@ function initMap() {
         }
         ]
     });
-    
-    var marker = new google.maps.Marker({ 
-        position: {lat: 29.5984, lng: -95.6226}, 
-        title: "My City",
-        animation: google.maps.Animation.DROP
-    });
 
-    marker.setMap(map);
+    addLandmark(map, 29.5984, -95.6226, 'Home','This is where I grew up.');
+
+    var trafficLayer = new google.maps.TrafficLayer();
+    trafficLayer.setMap(map);
 }

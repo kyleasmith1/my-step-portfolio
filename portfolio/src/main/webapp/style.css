@@ -88,6 +88,7 @@ li {
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
+  color: black;
 }
 
 #name-box, #text-box {
