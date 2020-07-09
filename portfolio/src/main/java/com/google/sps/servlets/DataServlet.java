@@ -16,6 +16,9 @@ package com.google.sps.servlets;
 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
+import com.google.appengine.api.datastore.*;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -64,10 +67,10 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String text = getParameter(request, "text-input", "");
-    String username = getParameter(request, "name-input", "Anonymous");
+    //String username = getParameter(request, "name-input", "Anonymous");
     long timestamp = System.currentTimeMillis();
 
-    String comment = username + ": " + text;
+    String comment = text;
 
     // Add Comments
     Entity taskEntity = new Entity("Task");
@@ -90,22 +93,18 @@ public class DataServlet extends HttpServlet {
   }
 
   private int getUnsignedIntParameter(HttpServletRequest request, HttpServletResponse response, String parameter_name, int defaultValue) throws IOException {
-    int value = 0;
+    assert defaultValue > 0;
 
     try {
-        value = Integer.parseInt(request.getParameter(parameter_name));
+        int value = Integer.parseInt(request.getParameter(parameter_name));
+        if (value > 0) {
+            return value;
+        }
+        return defaultValue;
     }
     catch (NumberFormatException e) {
         response.sendError(400, "paramater-name must be a valid integer");
+        return defaultValue;
     }
-
-    if (value <= 0) {
-        if (defaultValue > 0) {
-            return defaultValue;
-        } else {
-            return 0;
-        }
-    }
-    return value;
   }
 }
