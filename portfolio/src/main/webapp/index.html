@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="getComments()">
+    <!-- Week 1 -->
     <h1>Kyle Smith's Portfolio</h1>
 
     <p><a href="https://github.com/kyleasmith1">GitHub</a>&nbsp;&nbsp;
@@ -21,6 +22,12 @@
         </a>
     </div>
 
+    <h3>Click Here To Get A Random Inspirational Quote:</h3>
+
+    <button class="buttons" onclick="addRandomQuote()">Random Quote</button>
+    
+    <div id="quote-container"></div>
+
     <h3>Some Projects I've Worked On:</h3>
 
     <p>LISP Interpreter-carlae (Python)</p>
@@ -30,10 +37,33 @@
     <p>Johnson's Algorithm (Python)</p>
     <p>N-Dimensional Minesweeper (Python)</p>
 
-    <h3>Click Here To Get A Random Inspirational Quote:</h3>
+    <!-- Week 2 -->
+    <form action="/data" method="POST">
 
-    <button id="random-quote-button" onclick="addRandomQuote()">Random Quote</button>
-    
-    <div id="quote-container"></div>
+      <p><h3>Enter a comment:</h3></p>
+      <textarea name="name-input" id="name-box" placeholder ="Username..."
+      maxlength="25"></textarea>
+
+      <p><textarea name="text-input" id="text-box" placeholder="Leave a message..." 
+      maxlength="300"></textarea></p>
+
+      <input type="submit" class="buttons">
+    </form>
+
+    <form action="/data" method="POST">
+        <p>Number of Comments:  <select id="amount" onchange="getComments()"></p>
+            <option value="/data?comment-bound=5">5</option>
+            <option value="/data?comment-bound=10">10</option>
+            <option value="/data?comment-bound=25">25</option>
+        </select>
+    </form>
+
+    <p><div class="comment-bar"></div></p>
+    <p><div id="comment-container"></div></p>
+
+    <form action="/delete-data" method="POST">
+      <input type="submit" value="Delete All" class="buttons">
+    </form>
+
   </body>
 </html>

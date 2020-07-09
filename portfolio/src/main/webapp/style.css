@@ -28,6 +28,26 @@ body {
     width: 650px;
 }
 
+.buttons {
+    border-radius:10px;
+    color: floralwhite;
+    background-color: black;
+}
+
+.comment-bar {
+    border-bottom:1.5px solid floralwhite;
+    opacity: 0.6;
+}
+
+#comment-container, #quote-container {
+    margin-top: 15px;
+}
+
+#comment-container {
+    text-align: left;
+    word-wrap: break-word;
+}
+
 h1, h2, h3 {
     color: black;
     text-shadow: 2px 2px 5px turquoise, 1px 1px 3px purple, 1px 2px 3px snow;
@@ -56,13 +76,34 @@ img:hover {
     box-shadow: 0 0 2px 1px white;
 }
 
-#random-quote-button {
-    border-radius:10px;
-    color: floralwhite;
-    background-color: black;
-  
+li {
+    list-style-type:none;
+    margin-top: 15px;
 }
 
-#quote-container {
-    margin-top: 15px;
+#name-box, #text-box {
+    background: url(images/better.jpg) center center no-repeat fixed;
+    border: 1px solid white;
+    outline: none;
+    resize: none;
+    color: floralwhite;
+}
+
+#name-box {
+    width: 12em;
+    height: 1.75em;
+}
+
+#text-box {
+    width: 48em;
+    height: 4em;
+}
+
+/* PlaceHolder */
+::-webkit-input-placeholder {
+  color: floralwhite;
+}
+
+:focus::-webkit-input-placeholder {
+  opacity: 0.55;
 }
