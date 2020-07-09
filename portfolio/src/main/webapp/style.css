@@ -83,8 +83,8 @@ li {
 
 #map {
   border: thin solid black;
-  height: 500px;
-  width: 650px;
+  height: 350px;
+  width: 425px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
@@ -97,6 +97,7 @@ li {
     outline: none;
     resize: none;
     color: floralwhite;
+    border-radius: 6.5px;
 }
 
 #name-box {
