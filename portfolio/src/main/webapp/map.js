@@ -1,8 +1,9 @@
-/* Week 4 */
+/** Creates a blank map using a Maps API */
 function createMap() {
   const map = new google.maps.Map(document.getElementById('map'));
 }
 
+/** Adds landmarks and descriptions (using info Windows) to desired locations */
 function addLandmark(map, lat, lng, title, description) {
   const marker = new google.maps.Marker({
       position: {lat: lat, lng: lng}, 
@@ -17,9 +18,9 @@ function addLandmark(map, lat, lng, title, description) {
   });
 }
 
-/* Night Mode */
+/** Map design function. Includes: Night Mode, a Traffic Layer, and a Landmark */
 function initMap() {
-    // Styles a map in night mode.
+    // Night Mode
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 29.7604, lng: -95.3698},
         zoom: 9,
@@ -104,7 +105,7 @@ function initMap() {
         }
         ]
     });
-
+    
     addLandmark(map, 29.5984, -95.6226, 'Home','This is where I grew up.');
 
     var trafficLayer = new google.maps.TrafficLayer();

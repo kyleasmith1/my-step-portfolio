@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body onload="getComments()" onload="fetchBlobstoreUrlAndShowForm()">
-    <!-- Week 2 -->
+  <body onload="getComments()">
     <h1>Kyle Smith's Portfolio</h1>
 
     <p><a href="https://github.com/kyleasmith1">GitHub</a>&nbsp;&nbsp;
@@ -37,7 +36,6 @@
     <p>Johnson's Algorithm (Python)</p>
     <p>N-Dimensional Minesweeper (Python)</p>
 
-    <!-- Week 3 -->
     <form action="/data" method="POST">
 
       <p><h3>Enter a comment:</h3></p>
@@ -47,12 +45,21 @@
       <p><textarea name="text-input" id="text-box" placeholder="Leave a message..." 
       maxlength="300"></textarea></p>
 
-      <input type="submit" class="buttons">
+      <p><input type="submit" class="buttons"></p>
     </form>
 
-    <!-- Week 3 -->
     <form action="/data" method="POST">
-        <p>Number of Comments:  <select id="amount" onchange="getComments()"></p>
+        Language: <select id="language" onchange="getComments()">
+            <option value="&languageCode=en">English</option>
+            <option value="&languageCode=ar">Arabic</option>
+            <option value="&languageCode=zh">Chinese</option>
+            <option value="&languageCode=hi">Hindi</option>
+            <option value="&languageCode=es">Spanish</option>
+        </select>
+
+    &nbsp;&nbsp;
+
+        Number of Comments:  <select id="amount" onchange="getComments()">
             <option value="/data?comment-bound=25">25</option>
             <option value="/data?comment-bound=50">50</option>
             <option value="/data?comment-bound=100">100</option>
