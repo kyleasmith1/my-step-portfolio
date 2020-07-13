@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/** Randomly chooses which element in a list to output to the user's screen */
+/**  Randomly chooses which element in a list to output to the user's screen */
  function addRandomQuote() {
     const quotes =  [
         'The most common way people give up their power is by thinking they don’t have any.',
@@ -34,8 +34,10 @@
     quoteContainer.innerText = quote;
 }
 
-/** Uses fetch to grab comment and language data from a servlet and outputs the comments
-to the user's screen */
+/** 
+ * Uses fetch to grab comment and language data from a servlet and outputs the comments
+ * to the user's screen 
+ */
 function getComments(){
   fetch(document.getElementById('amount').value 
   + document.getElementById('language').value)

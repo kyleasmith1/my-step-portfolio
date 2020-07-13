@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/delete-data")
 public class DeleteDataServlet extends HttpServlet {
   
-  /** Iterates through the tasks on the webpage and deletes them from the datastore*/
+  /** Iterates through the tasks on the webpage and deletes them from the datastore */
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Query query = new Query("Task");

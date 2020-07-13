@@ -1,4 +1,4 @@
-/** Creates a blank map using a Maps API */
+/**  Creates a blank map using a Maps API */
 function createMap() {
   const map = new google.maps.Map(document.getElementById('map'));
 }
