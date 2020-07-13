@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <title>About Me</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCibNXSiDMVZCsjXzqZxLkzjV9fSD5CqCk&callback=initMap"
+    async defer></script>
   </head>
   <body>
     <div class="bar">
@@ -17,14 +20,16 @@
 
     <h2>About Me</h2>
 
-    <p>I was born in Austin, Texas on December 8, 2000. There are 6 people in my family: me, my 2 parents, 
-    my older sister, my older brother, and my younger brother.I am a rising sophomore at 
-    the Massachusetts Institute of Technology who is studying Mathematics & Computer Science. 
-    I am currently interning at Google through their STEP program. I love traveling, and have studied 
-    abroad in Costa Rica and Spain.</p>
+    <p>I was born in Austin, Texas on December 8, 2000. I currently live in Sugar Land, Texas (see below).
+    There are 6 people in my family: me, my 2 parents, my older sister, my older brother, and my younger 
+    brother.I am a rising sophomore at the Massachusetts Institute of Technology who is studying 
+    Mathematics & Computer Science. I am currently interning at Google through their STEP program. 
+    I love traveling, and have studied abroad in Costa Rica and Spain.</p>
 
     <p>Hobbies: Biking, Skateboarding, Reading, Basketball, Video Games </p>
 
     <p>Fun Fact: I have <a href="http://www.wondersandmarvels.com/2014/09/the-murderers-thumb-a-short-history.html">stub thumbs</a></p>
+
+    <div id="map"></div>
   </body>
 </html>

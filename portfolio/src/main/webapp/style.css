@@ -48,16 +48,16 @@ body {
     word-wrap: break-word;
 }
 
-h1, h2, h3 {
-    color: black;
-    text-shadow: 2px 2px 5px turquoise, 1px 1px 3px purple, 1px 2px 3px snow;
-}
-
 .gallery-img {
     width: 400px; 
     height: 221px;
     margin-left: auto;
     margin-right: auto;
+}
+
+h1, h2, h3 {
+    color: black;
+    text-shadow: 2px 2px 5px turquoise, 1px 1px 3px purple, 1px 2px 3px snow;
 }
 
 .home-img {
@@ -81,12 +81,23 @@ li {
     margin-top: 15px;
 }
 
+#map {
+  border: thin solid black;
+  height: 350px;
+  width: 425px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  color: black;
+}
+
 #name-box, #text-box {
     background: url(images/better.jpg) center center no-repeat fixed;
     border: 1px solid white;
     outline: none;
     resize: none;
     color: floralwhite;
+    border-radius: 6.5px;
 }
 
 #name-box {
