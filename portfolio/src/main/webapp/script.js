@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/* Week 2 */
+/**  Randomly chooses which element in a list to output to the user's screen */
  function addRandomQuote() {
     const quotes =  [
         'The most common way people give up their power is by thinking they don’t have any.',
@@ -23,7 +23,6 @@
         'You become what you believe.', 'Dream big and dare to fail.',
     ];
 
-    // Assign Random Quote
     const quoteContainer = document.getElementById('quote-container');
 
     let quote = quotes[Math.floor(Math.random() * quotes.length)];
@@ -35,19 +34,25 @@
     quoteContainer.innerText = quote;
 }
 
-/* Week 3 */
+/** 
+ * Uses fetch to grab comment and language data from a servlet and outputs the comments
+ * to the user's screen 
+ */
 function getComments(){
-  fetch(document.getElementById('amount').value).then(response => response.json()).then((tasks) => {
-    const commentEl = document.getElementById('comment-container');
-    
-    commentEl.innerHTML = '';
+  fetch(document.getElementById('amount').value 
+  + document.getElementById('language').value)
+        .then(response => response.json()).then((tasks) => {
+            const commentEl = document.getElementById('comment-container');
+            
+            commentEl.innerHTML = '';
 
-    tasks.forEach((task) => {
-        commentEl.appendChild(createTaskElement(task));
-    });
+            tasks.forEach((task) => {
+                commentEl.appendChild(createTaskElement(task));
+            });
   });
 }
 
+/** Creates task elements that are can be displayed on the user's screen */
 function createTaskElement(task) {
   const taskElement = document.createElement('li');
   taskElement.className = 'task';
