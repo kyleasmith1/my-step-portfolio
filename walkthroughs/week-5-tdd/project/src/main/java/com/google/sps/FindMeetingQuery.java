@@ -20,7 +20,10 @@ import java.util.Collection;
 import java.util.Collections;
 
 public final class FindMeetingQuery {
-
+  
+  /** Creates a query that allows for different possible meeting time ranges to be found 
+    * given any request for a meeting throughout a day
+    */
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
 
     // Base Case(s)
@@ -39,11 +42,10 @@ public final class FindMeetingQuery {
         int eventStart = event.getWhen().start();
         int eventEnd = event.getWhen().end();
 
-        // At least one similar attendee
+        // Checks to see if there is at least one similar attendee during an event
         if (!Collections.disjoint(request.getAttendees(), event.getAttendees())) {
             similarities += 1;
 
-            // Checks for overlap
             if (eventStart <= startAt && eventEnd > startAt) {
                 startAt = eventEnd;
             }
