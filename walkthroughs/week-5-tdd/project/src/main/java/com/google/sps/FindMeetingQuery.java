@@ -96,6 +96,8 @@ public final class FindMeetingQuery {
     if (temporaryStart != 1440) {
         timeCollection.add(TimeRange.fromStartEnd(temporaryStart, 1440, false));
     }
+    Collections.sort(timeCollection, TimeRange.ORDER_BY_START);
+    
     return timeCollection;
   } 
 }
