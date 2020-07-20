@@ -20,55 +20,84 @@ import java.util.Collection;
 import java.util.Collections;
 
 public final class FindMeetingQuery {
-  
-  /** Creates a query that allows for different possible meeting time ranges to be found 
+
+  /** 
+    * Creates a query that allows for different possible meeting time ranges to be found 
     * given any request for a meeting throughout a day
     */
-  public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
 
-    // Base Case(s)
+  public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
+    ArrayList<TimeRange> timeCollection = new ArrayList<TimeRange>();
+    ArrayList<TimeRange> relevantTimes = new ArrayList<TimeRange>();
+    ArrayList<TimeRange> optionalTimes = new ArrayList<TimeRange>();
+    int temporaryStart = 0;
+
+    // Base Case
     if (request.getDuration() > 1440) {
-        return Arrays.asList(); 
+        return Arrays.asList();
     }
 
-    // General Case(s)
-    int startAt = 0;
-    int endAt = 0;
-    int similarities = 0;
-
-    ArrayList<TimeRange> queryCollection = new ArrayList<TimeRange>();
-
-    for(Event event: events) {
-        int eventStart = event.getWhen().start();
-        int eventEnd = event.getWhen().end();
-
-        // Checks to see if there is at least one similar attendee during an event
-        if (!Collections.disjoint(request.getAttendees(), event.getAttendees())) {
-            similarities += 1;
-
-            if (eventStart <= startAt && eventEnd > startAt) {
-                startAt = eventEnd;
-            }
-
-            endAt = eventStart;
-            if (endAt > startAt) {
-                if (request.getDuration() <= (endAt - startAt)) {
-                    queryCollection.add(TimeRange.fromStartEnd(startAt, endAt, false));
-                }
-
-                startAt = eventEnd;
-            }    
+    // Separates events into mandatory or optional time ranges
+    for (Event event: events) {
+        if (!Collections.disjoint(request.getAttendees(), event.getAttendees())
+            || (!Collections.disjoint(request.getOptionalAttendees(), event.getAttendees())
+                && request.getAttendees().size() == 0)) {
+            relevantTimes.add(event.getWhen());
+        }
+        if (!Collections.disjoint(request.getOptionalAttendees(), event.getAttendees())) {
+            optionalTimes.add(event.getWhen());
         }
     }
 
-    if (similarities == 0) {
+    if (relevantTimes.size() == 0 && optionalTimes.size() == 0) {
         return Arrays.asList(TimeRange.WHOLE_DAY);
     }
 
-    if (startAt != 1440) {
-        queryCollection.add(TimeRange.fromStartEnd(startAt, 1440, false));
+    // Find possible ranges by looking at mandatory meeting times
+    for(TimeRange time: relevantTimes) {
+        if (time.contains(temporaryStart)) {
+            temporaryStart = time.end();
+        }
+        if (time.start() > temporaryStart) {
+            if (request.getDuration() <= (time.start() - temporaryStart)) {
+                timeCollection.add(TimeRange.fromStartEnd(temporaryStart, time.start(), false));
+            }
+            temporaryStart = time.end();
+        }    
     }
 
-    return queryCollection;
+    TimeRange removeRange = null;
+    TimeRange leftSplit = null;
+    TimeRange rightSplit = null;
+
+    // Goes through optional events and checks if meetings should be scheduled during those times or not
+    for (TimeRange time: optionalTimes) {
+        for (TimeRange collection: timeCollection) {
+            if (request.getDuration() <= time.duration() && collection.contains(time)) {
+                removeRange = collection;
+                if (!collection.equals(time)) {
+                   leftSplit = TimeRange.fromStartEnd(collection.start(), time.start(), false);
+                   rightSplit = TimeRange.fromStartEnd(time.end(), collection.end(), false);
+                }
+            }
+        }
+    }
+
+    timeCollection.remove(removeRange);
+    
+    if (leftSplit != null && request.getDuration() <= leftSplit.duration()) {
+        timeCollection.add(leftSplit);
+    }
+
+    if (rightSplit != null && request.getDuration() <= rightSplit.duration()) {
+        timeCollection.add(rightSplit);
+    }
+
+    if (temporaryStart != 1440) {
+        timeCollection.add(TimeRange.fromStartEnd(temporaryStart, 1440, false));
+    }
+    Collections.sort(timeCollection, TimeRange.ORDER_BY_START);
+    
+    return timeCollection;
   } 
 }
